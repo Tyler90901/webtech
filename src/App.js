@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import HomePage from './Home';
 import AboutPage from './About';
 import CatalogPage from './Catalog';
+import items from './info-json';
 
 import Item from './Item';
 
@@ -16,6 +17,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
 export default function App() {
+
   return (
   <Router>
     <div>  
@@ -36,7 +38,7 @@ export default function App() {
       <Route path="/" exact component={Home} />
       <Route path="/catalog"  component={Catalog} />
       <Route path="/about"  component={About} />
-      <Route path="/item/:nm" component={ItemPage}/>
+      <Route path="/item/:id" component={ItemPage}/>
       <Route render={() => <h1>404: page not found</h1>} />
     </Switch>
   </Router>
@@ -70,12 +72,37 @@ return (
   )
   };
 
-    //Item Page
-const ItemPage = ({match:{params:{nm}}}) => {
-return (
-  <div>
-    <h1>Item {nm} Page</h1>
-    <ItemPage name={nm}/>
-  </div>
-  )
-  };
+  const itemLookup = (id) => {
+    const item = items.filter(obj => obj.id === id);
+    console.log(item)
+    if(item[0]) {
+      return item[0];
+    } else {
+      return {id: '-1', address: 'no address found'};
+    }
+  }
+
+//Item Page
+const ItemPage = ({ match: {params: {id}}}) => {
+
+  const good = () => {
+    return (
+      (<div>
+        <h1>{itemLookup(id).name} Page hello!</h1>
+        <p>{itemLookup(id).address}</p>
+      </div>)
+    );
+  }
+
+  const bad = () => {
+    return (
+      <h1>no resource found</h1> 
+    );
+  }
+
+  return (
+    <div>
+      {itemLookup(id).id === '-1' ? bad() : good()}
+    </div>
+    );
+};
