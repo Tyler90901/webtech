@@ -12,8 +12,7 @@ function Catalog() {
   return (
     <div className="Catalog">
         {Routes.map((route, index) => {
-          console.log()
-            return <p key={index}><Link to={`/item/${route.name.split(' ').join('')}`}> {route.name} </Link></p>
+            return <p key={index}><Link to={`/item/${route.id}`}> {route.name} </Link></p>
         })}
     </div>
   );
