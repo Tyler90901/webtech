@@ -1,0 +1,55 @@
+img {
+    float: left;
+    width:  100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+/* unvisited link */
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: grey;
+  color: black;
+  font-weight: bold;
+}
+
+.jumbotron{
+    background-image: url(./images/background.PNG);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+
+h1 {
+    margin-left: 15%;
+    margin-right:15%;
+}
+
+p {
+    margin-left: 15%;
+    margin-right:15%;
+}
