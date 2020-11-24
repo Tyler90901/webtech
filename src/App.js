@@ -71,11 +71,14 @@ return (
   };
 
     //Item Page
-const ItemPage = ({match:{params:{nm}}}) => {
-return (
-  <div>
-    <h1>Item {nm} Page</h1>
-    <ItemPage name={nm}/>
-  </div>
+const ItemPage = (
+  { match: {
+      params: {nm}
+    }
+  }) => {
+  return (
+    <div>
+      <h1>Item {nm} Page</h1>
+    </div>
   )
-  };
+};
