@@ -36,7 +36,7 @@ export default function App() {
       <Route path="/" exact component={Home} />
       <Route path="/catalog"  component={Catalog} />
       <Route path="/about"  component={About} />
-      <Route path="/item" component={ItemPage}/>
+      <Route path="/item/:nm" component={ItemPage}/>
       <Route render={() => <h1>404: page not found</h1>} />
     </Switch>
   </Router>
@@ -70,12 +70,12 @@ return (
   )
   };
 
-//Item Page
-const ItemPage = () => {
+    //Item Page
+const ItemPage = ({match:{params:{nm}}}) => {
 return (
   <div>
-    <h1>Item Page</h1>
-    <Item name='test'/>
+    <h1>Item {nm} Page</h1>
+    <ItemPage name={nm}/>
   </div>
   )
-};
+  };
